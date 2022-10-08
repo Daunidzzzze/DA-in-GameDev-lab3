@@ -144,20 +144,20 @@ behaviors:
 ### Подробно опишите каждую строку файла конфигурации нейронной сети. Самостоятельно найдите информацию о компонентах Decision Requester, Behavior Parameters, добавленных сфере.
 
 ```yaml
-behaviors: #Создание списка "Модель поведения"
+behaviors: #Создание списка "Модель поведения" дял разных агентов
   RollerBall: #Создание списка конкретного объекта
-    trainer_type: ppo
+    trainer_type: ppo #ppo - это алгоритм обучения с подкреплением от OpenAi
     hyperparameters:
-      batch_size: 10
-      buffer_size: 100
-      learning_rate: 3.0e-4
+      batch_size: 10 #количество опыта на каждоый итерации
+      buffer_size: 100 #колличество опыта которое необхдимо собрать для перехода к обучению или изучении модели
+      learning_rate: 3.0e-4 #скорость обучения
       beta: 5.0e-4
       epsilon: 0.2
       lambd: 0.99
       num_epoch: 3
-      learning_rate_schedule: linear
+      learning_rate_schedule: linear #определение изменения скорости обучения с течением времени
     network_settings:
-      normalize: false
+      normalize: false #к входным данным не применяется нормализация
       hidden_units: 128
       num_layers: 2
     reward_signals:
